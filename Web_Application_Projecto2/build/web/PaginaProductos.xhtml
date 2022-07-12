@@ -18,6 +18,13 @@
                                          styleClass="ui-button-success" style="margin-right: .5rem">
                             <p:resetInput target=":form:manage-product-content"/>
                         </p:commandButton>
+                        
+                        <p:commandButton value="Crear Cuenta" icon="pi pi-plus" 
+                                         styleClass="ui-button-success" style="margin-right: .5rem"
+                                         actionListener="#{UserWizardController.ingresar()}"
+                                         >
+                        </p:commandButton>
+                        
 
                     </p:toolbarGroup>
                 </p:toolbar>
