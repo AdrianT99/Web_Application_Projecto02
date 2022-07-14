@@ -196,6 +196,9 @@ public class ServicioCliente extends Servicio {
     }
 
     public void insertarCliente(ClienteTO clienteTO) {
+        
+        //TIPO DE USUARIO: EL NUMERO 1 ES PARA CLIENTES ADMINISTRADOR Y EL NUMERO 2 PARA USUARIOS COMUNES, COMPRADORES.
+        int tipoCliente=2;
 
         PreparedStatement ps = null;
 
@@ -206,7 +209,7 @@ public class ServicioCliente extends Servicio {
             ps.setString(2, clienteTO.getPassword());
             ps.setInt(3, clienteTO.getTelefono());
             ps.setInt(4, clienteTO.getEdad());
-            ps.setInt(5, clienteTO.getTipoUsuario());
+            ps.setInt(5, tipoCliente);
             ps.execute();
 
         } catch (Exception ex) {

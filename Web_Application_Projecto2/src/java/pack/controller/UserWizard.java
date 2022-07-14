@@ -2,6 +2,7 @@
 package pack.controller;
 
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 
@@ -9,33 +10,48 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import org.primefaces.event.FlowEvent;
+import pack.service.ClienteTO;
 import pack.service.ServicioCliente;
-import pack.service.User;
 
 @ManagedBean(name = "UserWizardController")
 @ViewScoped
 public class UserWizard implements Serializable
 {
-    private User user = new User();
+    private ClienteTO clienteTO = new ClienteTO();
 
     private boolean skip;
+    
+    ServicioCliente servicioCliente = new ServicioCliente();
 
-    public User getUser() {
-        return user;
+    public ClienteTO getClienteTO() {
+        return clienteTO;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClienteTO(ClienteTO clienteTO) {
+        this.clienteTO = clienteTO;
+    }
+    
+    @PostConstruct
+    public void openNew()
+    {
+        this.clienteTO = new ClienteTO();
     }
 
     public void save() {
-        String pass = user.getPassword();
-        String confirmPass = user.getConfirmPassword();
+        String pass = clienteTO.getPassword();
+        String confirmPass = clienteTO.getConfirmPassword();
         
         if(pass.equals(confirmPass))
-        {
-            FacesMessage msg = new FacesMessage("Cuenta creada correctamente!", "Bienvenid@ :" + user.getFirstname());
+        {   
+            servicioCliente.insertarCliente(clienteTO);
+            
+            ingresarLogin();
+            
+            FacesMessage msg = new FacesMessage("Cuenta creada correctamente!", "Bienvenid@ :" + clienteTO.getNombreUsuario());
             FacesContext.getCurrentInstance().addMessage(null, msg);
+            
+            
+            //pendiente el mensaje de confirmacion de la creacion de la cuenta...
         }
         else
         {
@@ -61,9 +77,15 @@ public class UserWizard implements Serializable
         }
     }
     
-    public void ingresar() {
+    public void ingresarRegistro() {
 
             this.redireccionar("/faces/RegistoUsuario.xhtml");
+
+    }
+    
+    public void ingresarLogin() {
+
+            this.redireccionar("/faces/index.xhtml");
 
     }
 
@@ -79,4 +101,32 @@ public class UserWizard implements Serializable
 
         }
     }
+    
+//    public void insertarCliente(ClienteTO clienteTO) {
+//
+//        PreparedStatement ps = null;
+//
+//        try {
+//            Connection conn = super.getConexion();
+//            ps = conn.prepareStatement("INSERT INTO USER(USER, PASSWORD, TELEFONO, EDAD, TIPOUSUARIO) VALUES(?,?,?,?,?)");
+//            ps.setString(1, clienteTO.getUser());
+//            ps.setString(2, clienteTO.getPassword());
+//            ps.setInt(3, clienteTO.getTelefono());
+//            ps.setInt(4, clienteTO.getEdad());
+//            ps.setInt(5, clienteTO.getTipoUsuario());
+//            ps.execute();
+//
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//
+//        } finally {
+//            try {
+//                if (ps != null && !ps.isClosed()) {
+//                    ps.close();
+//                }
+//            } catch (SQLException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//    }
 }

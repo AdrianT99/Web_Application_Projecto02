@@ -47,13 +47,13 @@
                     <p:messages/>
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Nombre: *"/>
-                        <p:inputText value="#{UserWizardController.user.firstname}" required="true" label="Nombre"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.nombreUsuario}" required="true" label="Nombre"/>
 
                         <h:outputText value="Edad: "/>
-                        <p:inputText value="#{UserWizardController.user.age}" required="true" label="Edad"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.edad}" required="true" label="Edad"/>
                         
                         <h:outputText value="Telefono: *"/>
-                        <p:inputText value="#{UserWizardController.user.phone}" required="true" label="Telefono"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.telefono}" required="true" label="Telefono"/>
 
                         <h:outputText value="Skip to last: "/>
                         <h:selectBooleanCheckbox value="#{UserWizardController.skip}"/>
@@ -66,13 +66,13 @@
                     <p:messages/>
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Correo: "/>
-                        <p:inputText value="#{UserWizardController.user.email}" required="true" label="Correo"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.user}" required="true" label="Correo"/>
 
                         <h:outputText value="Contrasenna: "/>
-                        <p:inputText value="#{UserWizardController.user.password}" required="true" label="Contrasenna"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.password}" required="true" label="Contrasenna"/>
 
                         <h:outputText value="Confirmar Contrasenna: "/>
-                        <p:inputText value="#{UserWizardController.user.confirmPassword}" required="true" label="Confirmar Contrasenna"/>
+                        <p:inputText value="#{UserWizardController.clienteTO.confirmPassword}" required="true" label="Confirmar Contrasenna"/>
 
                         <h:outputText value="Skip to last: "/>
                         <h:selectBooleanCheckbox value="#{UserWizardController.skip}"/>
@@ -85,24 +85,24 @@
                     <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Nombre: "/>
-                            <h:outputText value="#{UserWizardController.user.firstname}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.nombreUsuario}" styleClass="outputLabel"/>
 
                             <h:outputText value="Edad: "/>
-                            <h:outputText value="#{UserWizardController.user.age}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.edad}" styleClass="outputLabel"/>
 
                             <h:outputText value="Telefono: "/>
-                            <h:outputText value="#{UserWizardController.user.phone}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.telefono}" styleClass="outputLabel"/>
                         </h:panelGrid>
 
                         <h:panelGrid columns="2" columnClasses="label, value">
                             <h:outputText value="Correo: "/>
-                            <h:outputText value="#{UserWizardController.user.email}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.user}" styleClass="outputLabel"/>
 
                             <h:outputText value="Contrasenna: "/>
-                            <h:outputText value="#{UserWizardController.user.password}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.password}" styleClass="outputLabel"/>
 
                             <h:outputText value="Confirmar contrasenna: "/>
-                            <h:outputText value="#{UserWizardController.user.confirmPassword}" styleClass="outputLabel"/>
+                            <h:outputText value="#{UserWizardController.clienteTO.confirmPassword}" styleClass="outputLabel"/>
                         </h:panelGrid>
 
                             <h:outputText/>
