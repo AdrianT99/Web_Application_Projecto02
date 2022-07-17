@@ -31,11 +31,16 @@ public class LoginController implements Serializable {
         ServicioCliente servicioCliente = new ServicioCliente();
         this.clienteTO = servicioCliente.demeCliente(user, pass);
         if (this.clienteTO != null) {
-
+            if(this.clienteTO.getTipoUsuario() == 2){
+                this.redireccionar("/faces/Dashboard.xhtml");
+            }else{
+                
             this.redireccionar("/faces/PaginaProductos.xhtml");
+            }
         } else {
             FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_WARN, "Campos invalidos", "El usuario o contrasena no son correctos"));
         }
+        
     }
 
     public void redireccionar(String ruta) {
