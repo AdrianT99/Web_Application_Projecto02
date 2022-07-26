@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Crear Cuenta</title>
     </h:head>
     <h:body>
         <style type="text/css">
@@ -54,9 +54,6 @@
                         
                         <h:outputText value="Telefono: *"/>
                         <p:inputText value="#{UserWizardController.clienteTO.telefono}" required="true" label="Telefono"/>
-
-                        <h:outputText value="Skip to last: "/>
-                        <h:selectBooleanCheckbox value="#{UserWizardController.skip}"/>
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
@@ -73,9 +70,6 @@
 
                         <h:outputText value="Confirmar Contrasenna: "/>
                         <p:inputText value="#{UserWizardController.clienteTO.confirmPassword}" required="true" label="Confirmar Contrasenna"/>
-
-                        <h:outputText value="Skip to last: "/>
-                        <h:selectBooleanCheckbox value="#{UserWizardController.skip}"/>
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
