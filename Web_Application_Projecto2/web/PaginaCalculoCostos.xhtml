@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <style type="text/css">
+            .p-field,.p-grid{
+                padding-bottom: 10px;
+            }
+
+            #labeled{
+                margin-left: 10px;
+            }
+
+            #input1,#input2,#input3,.ui-fluid,.ui-inputtext{
+                width: 100px;
+            }
+
+            .labelCant{
+                text-align: center;
+            }
+
+            .body{
+                text-align: center;
+            }
+
+            .container,.container2,.container3,.container4{
+                display: flex;
+                height: 100px;
+                flex-direction: row;
+                width: 600px;;
+                align-content: center;
+                justify-content: flex-start;
+                align-items: baseline;
+                gap: 35px;
+                padding-top: 15px;
+            }
+
+            .resultados{
+                display: flex;
+                height: 100px;
+                flex-direction: column;
+                width: 550px;;
+                align-content: center;
+                justify-content: flex-start;
+                align-items: baseline;
+                gap: 20px;
+                position: relative;
+                left: 406px;
+            }
+
+            button.ui-button {
+                margin-right: .5rem;
+            }
+
+            .buttons{
+                position: relative;
+                top:250px
+            }
+
+            .align{
+               position: relative;
+               left:480px;
+              
+            }
+        </style>
+
+
+        <div class="align">
+        <div class="p-field p-grid">
+            <label for="codigo" class="p-col-fixed" style="width:100px">Codigo</label>
+            <div class="p-col">
+                <p:inputText id="codigo" type="text" />
+            </div>
+        </div>
+
+
+        
+        <h:form>
+            <h5>Descripcion</h5>
+            <p:inputTextarea rows="6" cols="33"/>
+        </h:form>
+        <div class="card">
+            <h:form class="container" id="calculos">       
+
+
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant" for="input1" value="Cant"/>
+                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="descripcion" class="p-col-fixed" style="width:100px">Descripcion</label>
+                    <div class="p-col">
+                        <p:inputText id="descripcion" type="text" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant2" for="input2" value="Unitario"/>
+                        <p:inputNumber id="input2" value="#{inputNumberView.input2}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant3" for="input3" value="Total"/>
+                        <p:inputNumber id="input3" value="#{inputNumberView.input3}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p:commandButton actionListener="#{inputNumberView.calculoCostoTotal()}" update="calculos" />
+                    </div>
+                </div>
+
+            </h:form>
+            <h:form class="container2">       
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant" for="input1" value="Cant"/>
+                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="descripcion" class="p-col-fixed" style="width:100px">Descripcion</label>
+                    <div class="p-col">
+                        <p:inputText id="descripcion" type="text" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant2" for="input2" value="Unitario"/>
+                        <p:inputNumber id="input2" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant3" for="input3" value="Total"/>
+                        <p:inputNumber id="input3" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+            </h:form>
+            <h:form class="container3">       
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant" for="input1" value="Cant"/>
+                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="descripcion" class="p-col-fixed" style="width:100px">Descripcion</label>
+                    <div class="p-col">
+                        <p:inputText id="descripcion" type="text" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCantt" for="input2" value="Unitario"/>
+                        <p:inputNumber id="input2" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCantt" for="input3" value="Total"/>
+                        <p:inputNumber id="input3" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+            </h:form>
+            <h:form class="container4">       
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant" for="input1" value="Cant"/>
+                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <label for="descripcion" class="p-col-fixed" style="width:100px">Descripcion</label>
+                    <div class="p-col">
+                        <p:inputText id="descripcion" type="text" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant2" for="input2" value="Unitario"/>
+                        <p:inputNumber id="input2" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCantt" for="input3" value="Total"/>
+                        <p:inputNumber id="input3" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+            </h:form>
+            <h:form class="resultados">       
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant" for="input1" value="Costo Total"/>
+                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant2" for="input2" value="Margen%"/>
+                        <p:inputNumber id="input2" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant2" for="input2" value="Precio Sugerido"/>
+                        <p:inputNumber id="input3" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel class="labelCant3" for="input3" value="Precio Final"/>
+                        <p:inputNumber id="input4" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
+                    </div>
+                </div>
+            </h:form>
+            <div class="buttons">
+                <p:button value="Guardar" />
+                <p:button value="Borrar" styleClass="ui-button-danger" />
+            </div>
+        </div>
+        </div>
+    </h:body>
+    
+</html>
+
