@@ -4,23 +4,24 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Inicio Sesion</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
-    <h:body>
-        <h4>Testing</h4>
-        
-         <h:form>
-            <p:growl id ="growl" showDetail="true"/>
-            <p:messages id="messages" showDetail="true" closable="true">
-                <p:autoUpdate/> 
-            </p:messages>
-            
-            <p:panelGrid columns="1">
-                Usuario:<p:inputText value="#{loginController.user}"/>
-                Contrasena:<p:inputText value="#{loginController.pass}"/>
-                <p:commandButton value="Ingresar" actionListener="#{loginController.ingresar()}" update="growl,messages"/>                                               
-            </p:panelGrid>           
-        </h:form>
+    <h:body id="principal">
+        <div id="cuadro">
+            <h:form id="fondo">
+                <p:growl id ="growl" showDetail="true"/>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/> 
+                </p:messages>
+
+                <p:panelGrid columns="1">
+                    Usuario:<p:inputText value="#{loginController.user}"/>
+                    Contrasena:<p:password id="toggle" value="#{loginController.pass}" toggleMask="true" redisplay="true"/>
+                    <p:commandButton value="Ingresar" actionListener="#{loginController.ingresar()}" update="growl,messages"/>                                               
+                </p:panelGrid> 
+            </h:form>
+        </div>
     </h:body>
 </html>
 
