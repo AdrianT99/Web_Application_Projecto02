@@ -3,64 +3,223 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
     <h:head>
+        <link rel="stylesheet" href="https://unpkg.com/primeflex@3.1.2/primeflex.css"></link>
+        <link rel="stylesheet" href="primeflex.css"></link>
+
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <style type="text/css">
             button.ui-button {
-                margin-right: .5rem;
+                margin-right: .700rem;
+
             }
+
+            html,
+            body { height: 100%;
+            }
+            .parent {
+                height: 200px;
+                background: #CCCCCC;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .child {
+                background-color: #FFFF00;
+                width: 350px;
+                height: 100px;
+            }
+
         </style>
-        <div class="grid">
-            <div class="col-4">
-                <p:commandButton type="button" value="Catalogo"  actionListener="#{DashboardController.catalogo()}" onclick="PF('dlg1').show()" styleClass="ui-button-raised ui-button-flat" />
-            </div>
-            <div class="col-4">
-                <p:commandButton type="button" value="Ventas"  actionListener="#{DashboardController.ventas()}" onclick="PF('dlg2').show()" styleClass="ui-button-raised ui-button-flat" />
-            </div>
-            <div class="col-8">
-                <p:commandButton type="button" value="Clientes"  actionListener="#{DashboardController.clientes()}" onclick="PF('dlg3').show()" styleClass="ui-button-raised ui-button-flat" />
+        <div class="parent">
+            <div class="child">
+                <p:commandButton type="button" value="Ventas" actionListener="#{DashboardController.Ventas()}" styleClass="ui-button-raised ui-button-flat" />
+                <p:commandButton type="button" value="Clientes" actionListener="#{DashboardController.Clientes()}" styleClass="ui-button-raised ui-button-flat" />
+
+                <p:commandButton value="Ingresar" actionListener="#{DashboardController.Clientes()}" />                                               
+                <p:commandButton type="button" value="Catalogo" actionListener="#{DashboardController.Catalogo()}" styleClass="ui-button-raised ui-button-flat" />
 
             </div>
         </div>
 
-        <p:dialog header="Header" widgetVar="dlg1" minHeight="40" width="350" showEffect="fade">
-            <p class="m-0"> Este es el dialogo</p>
-        </p:dialog>
-        <p:dialog header="Header" widgetVar="dlg2" minHeight="40" width="350" showEffect="fade">
-            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p:dialog>
-        <p:dialog header="Header" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade">
-            <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </p:dialog>
 
 
-        <div class="grid">
-            <div class="col-4">4</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">1</div>
+
+        <!--        <div class="grid">
+                    <div class="col-4">4</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                    <div class="col">1</div>
+                </div>-->
+
+
+        <div class="surface-section px-4 py-5 md:px-6 lg:px-8">
+            <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-3">
+                <li>
+                    <a class="text-500 no-underline line-height-3 cursor-pointer">ENLACE 1</a>
+                </li>
+                <li class="px-2">
+                    <i class="pi pi-angle-right text-500 line-height-3"/>
+                </li>
+                <li>
+                    <span class="text-900 line-height-3">Analytics</span>
+                </li>
+            </ul>
+            <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
+                <div>
+                    <div class="font-medium text-3xl text-900">Customers</div>
+                    <div class="flex align-items-center text-700 flex-wrap">
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-users mr-2"/>
+                            <span>332 Active Users</span>
+                        </div>
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-globe mr-2"/>
+                            <span>9402 Sessions</span>
+                        </div>
+                        <div class="flex align-items-center mt-3">
+                            <i class="pi pi-clock mr-2"/>
+                            <span>2.32m Avg. Duration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 lg:mt-0">
+                    <p:commandButton type="button" value="Add" icon="pi pi-user-plus"
+                                     styleClass="ui-button-outlined mr-2"/>
+                    <p:commandButton type="button" value="Save" icon="pi pi-check"/>
+                </div>
+            </div>
         </div>
 
-        <div class="grid">
-    <div class="col-fixed" style="width:100px">Fixed</div>
-    <div class="col">Auto</div>
-</div>
         
+        <div class="surface-section px-4 py-5 md:px-6 lg:px-8">
+            <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-3">
+                <li>
+                    <a class="text-500 no-underline line-height-3 cursor-pointer">Application</a>
+                </li>
+                <li class="px-2">
+                    <i class="pi pi-angle-right text-500 line-height-3"/>
+                </li>
+                <li>
+                    <span class="text-900 line-height-3">Analytics</span>
+                </li>
+            </ul>
+            <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
+                <div>
+                    <div class="font-medium text-3xl text-900">Customers</div>
+                    <div class="flex align-items-center text-700 flex-wrap">
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-users mr-2"/>
+                            <span>332 Active Users</span>
+                        </div>
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-globe mr-2"/>
+                            <span>9402 Sessions</span>
+                        </div>
+                        <div class="flex align-items-center mt-3">
+                            <i class="pi pi-clock mr-2"/>
+                            <span>2.32m Avg. Duration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 lg:mt-0">
+                    <p:commandButton type="button" value="Add" icon="pi pi-user-plus"
+                                     styleClass="ui-button-outlined mr-2"/>
+                    <p:commandButton type="button" value="Save" icon="pi pi-check"/>
+                </div>
+            </div>
+        </div>
+
         
+        <div class="surface-section px-4 py-5 md:px-6 lg:px-8">
+            <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-3">
+                <li>
+                    <a class="text-500 no-underline line-height-3 cursor-pointer">Application</a>
+                </li>
+                <li class="px-2">
+                    <i class="pi pi-angle-right text-500 line-height-3"/>
+                </li>
+                <li>
+                    <span class="text-900 line-height-3">Analytics</span>
+                </li>
+            </ul>
+            <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
+                <div>
+                    <div class="font-medium text-3xl text-900">Customers</div>
+                    <div class="flex align-items-center text-700 flex-wrap">
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-users mr-2"/>
+                            <span>332 Active Users</span>
+                        </div>
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-globe mr-2"/>
+                            <span>9402 Sessions</span>
+                        </div>
+                        <div class="flex align-items-center mt-3">
+                            <i class="pi pi-clock mr-2"/>
+                            <span>2.32m Avg. Duration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 lg:mt-0">
+                    <p:commandButton type="button" value="Add" icon="pi pi-user-plus"
+                                     styleClass="ui-button-outlined mr-2"/>
+                    <p:commandButton type="button" value="Save" icon="pi pi-check"/>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="surface-section px-4 py-5 md:px-6 lg:px-8">
+            <ul class="list-none p-0 m-0 flex align-items-center font-medium mb-3">
+                <li>
+                    <a class="text-500 no-underline line-height-3 cursor-pointer">Application</a>
+                </li>
+                <li class="px-2">
+                    <i class="pi pi-angle-right text-500 line-height-3"/>
+                </li>
+                <li>
+                    <span class="text-900 line-height-3">Analytics</span>
+                </li>
+            </ul>
+            <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
+                <div>
+                    <div class="font-medium text-3xl text-900">Customers</div>
+                    <div class="flex align-items-center text-700 flex-wrap">
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-users mr-2"/>
+                            <span>332 Active Users</span>
+                        </div>
+                        <div class="mr-5 flex align-items-center mt-3">
+                            <i class="pi pi-globe mr-2"/>
+                            <span>9402 Sessions</span>
+                        </div>
+                        <div class="flex align-items-center mt-3">
+                            <i class="pi pi-clock mr-2"/>
+                            <span>2.32m Avg. Duration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 lg:mt-0">
+                    <p:commandButton type="button" value="Add" icon="pi pi-user-plus"
+                                     styleClass="ui-button-outlined mr-2"/>
+                    <p:commandButton type="button" value="Save" icon="pi pi-check"/>
+                </div>
+            </div>
+        </div>
+
+
+
+
     </h:body>
 </html>
 
