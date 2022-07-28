@@ -7,21 +7,42 @@
         <title>Inicio Sesion</title>
         <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
-    <h:body id="principal">
-        <div id="cuadro">
-            <h:form id="fondo">
-                <p:growl id ="growl" showDetail="true"/>
-                <p:messages id="messages" showDetail="true" closable="true">
-                    <p:autoUpdate/> 
-                </p:messages>
 
-                <p:panelGrid columns="1">
-                    Usuario:<p:inputText value="#{loginController.user}"/>
-                    Contrasena:<p:password id="toggle" value="#{loginController.pass}" toggleMask="true" redisplay="true"/>
+    <h:body id="principal">
+        <style type="text/css">
+
+            .login
+            {
+                 position: absolute;
+                 margin-top: 10%;
+                 width: 25%;
+                 height: 45%;
+                 left: 50%;
+                 transform: translateX(-50%);
+                 text-align: center;
+                 float: left;
+            }
+
+        </style>
+        <h:form id="fondo">
+            <p:growl id ="growl" showDetail="true"/>
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/> 
+            </p:messages>
+
+            <div id="login">
+                <p:panelGrid class = "login" columns="1">
+                    Usuario:<p:inputText value="#{loginController.user}" style="margin: auto;
+                                                                                width: 85%;
+                                                                                height: 30px;"/>
+                    Contrasena:<p:password id="toggle" value="#{loginController.pass}" toggleMask="true" 
+                                           redisplay="true"              style="margin: auto;
+                                                                                width: 85%;
+                                                                                height: 30px;"/>
                     <p:commandButton value="Ingresar" actionListener="#{loginController.ingresar()}" update="growl,messages"/>                                               
                 </p:panelGrid> 
-            </h:form>
-        </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

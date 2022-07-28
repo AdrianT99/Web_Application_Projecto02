@@ -8,108 +8,134 @@
     </h:head>
     <h:body>
         <style type="text/css">
-    .label {
-        width: 20%;
-        padding: 4px;
-    }
+            .label {
+                width: 20%;
+                padding: 4px;
+            }
 
-    .value {
-        width: 80%;
-        padding: 4px;
-    }
+            .value {
+                width: 80%;
+                padding: 4px;
+            }
 
-    .grid {
-        width: 100%;
-    }
+            .grid {
+                width: 100%;
+            }
 
-    .error {
-        color: red;
-    }
+            .error {
+                color: red;
+            }
 
-    .outputLabel {
-        font-weight: bold;
-    }
+            .outputLabel {
+                font-weight: bold;
+            }
 
-    .grid {
-        width: 33%;
-        padding: 4px;
-    }
-</style>
+            .grid {
+                width: 33%;
+                padding: 4px;
+            }
+            .registro
+            {
+                position: absolute;
+                margin-top: 5%;
+                width: 40%;
+                height: 30%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                float: left;
+            }
+            .PanelRegistro
+            {
+                position: absolute;
+                margin-top: 5%;
+                width: 45%;
+                height: 35%;
+                background-color: black;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+        </style>
 
-<div class="card">
-    <h:form>
+        <div class="card">
+            <h:form>
 
-        <p:growl id="growl" sticky="true" showDetail="true"/>
+                <p:growl id="growl" sticky="true" showDetail="true"/>
 
-        <p:wizard flowListener="#{UserWizardController.onFlowProcess}">
-            <p:tab id="personal" title="Personal">
-                <p:panel header="Datos Personales">
-                    <p:messages/>
-                    <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Nombre: *"/>
-                        <p:inputText value="#{UserWizardController.clienteTO.nombreUsuario}" required="true" label="Nombre"/>
+                <div class="PanelRegistro">
+                    <div class="registro">
+                        <p:wizard flowListener="#{UserWizardController.onFlowProcess}">
+                            <p:tab id="personal" title="Personal">
+                                <p:panel header="Datos Personales">
+                                    <p:messages/>
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Nombre: *"/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.nombreUsuario}" required="true" label="Nombre"/>
 
-                        <h:outputText value="Edad: "/>
-                        <p:inputText value="#{UserWizardController.clienteTO.edad}" required="true" label="Edad"/>
-                        
-                        <h:outputText value="Telefono: *"/>
-                        <p:inputText value="#{UserWizardController.clienteTO.telefono}" required="true" label="Telefono"/>
-                    </h:panelGrid>
-                </p:panel>
-            </p:tab>
+                                        <h:outputText value="Edad: "/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.edad}" required="true" label="Edad"/>
 
-            <p:tab id="address" title="Cuenta">
-                <p:panel header="Datos de la Cuenta">
-                    <p:messages/>
-                    <h:panelGrid columns="2" columnClasses="label, value">
-                        <h:outputText value="Correo: "/>
-                        <p:inputText value="#{UserWizardController.clienteTO.user}" required="true" label="Correo"/>
+                                        <h:outputText value="Telefono: *"/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.telefono}" required="true" label="Telefono"/>
+                                    </h:panelGrid>
+                                </p:panel>
+                            </p:tab>
 
-                        <h:outputText value="Contrasenna: "/>
-                        <p:inputText value="#{UserWizardController.clienteTO.password}" required="true" label="Contrasenna"/>
+                            <p:tab id="address" title="Cuenta">
+                                <p:panel header="Datos de la Cuenta">
+                                    <p:messages/>
+                                    <h:panelGrid columns="2" columnClasses="label, value">
+                                        <h:outputText value="Correo: "/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.user}" required="true" label="Correo"/>
 
-                        <h:outputText value="Confirmar Contrasenna: "/>
-                        <p:inputText value="#{UserWizardController.clienteTO.confirmPassword}" required="true" label="Confirmar Contrasenna"/>
-                    </h:panelGrid>
-                </p:panel>
-            </p:tab>
+                                        <h:outputText value="Contrasenna: "/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.password}" required="true" label="Contrasenna"/>
 
-            <p:tab id="confirm" title="Confirmar">
-                <p:panel header="Confirmacion">
-                    <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Nombre: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.nombreUsuario}" styleClass="outputLabel"/>
+                                        <h:outputText value="Confirmar Contrasenna: "/>
+                                        <p:inputText value="#{UserWizardController.clienteTO.confirmPassword}" required="true" label="Confirmar Contrasenna"/>
+                                    </h:panelGrid>
+                                </p:panel>
+                            </p:tab>
 
-                            <h:outputText value="Edad: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.edad}" styleClass="outputLabel"/>
+                            <p:tab id="confirm" title="Confirmar">
+                                <p:panel header="Confirmacion">
+                                    <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Nombre: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.nombreUsuario}" styleClass="outputLabel"/>
 
-                            <h:outputText value="Telefono: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.telefono}" styleClass="outputLabel"/>
-                        </h:panelGrid>
+                                            <h:outputText value="Edad: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.edad}" styleClass="outputLabel"/>
 
-                        <h:panelGrid columns="2" columnClasses="label, value">
-                            <h:outputText value="Correo: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.user}" styleClass="outputLabel"/>
+                                            <h:outputText value="Telefono: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.telefono}" styleClass="outputLabel"/>
+                                        </h:panelGrid>
 
-                            <h:outputText value="Contrasenna: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.password}" styleClass="outputLabel"/>
+                                        <h:panelGrid columns="2" columnClasses="label, value">
+                                            <h:outputText value="Correo: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.user}" styleClass="outputLabel"/>
 
-                            <h:outputText value="Confirmar contrasenna: "/>
-                            <h:outputText value="#{UserWizardController.clienteTO.confirmPassword}" styleClass="outputLabel"/>
-                        </h:panelGrid>
+                                            <h:outputText value="Contrasenna: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.password}" styleClass="outputLabel"/>
 
-                            <h:outputText/>
-                            <h:outputText/>
-                        </h:panelGrid>
+                                            <h:outputText value="Confirmar contrasenna: "/>
+                                            <h:outputText value="#{UserWizardController.clienteTO.confirmPassword}" styleClass="outputLabel"/>
+                                        </h:panelGrid>
 
-                    <p:commandButton value="Crear Cuenta" action="#{UserWizardController.save()}" update="growl" process="@this"/>
-                </p:panel>
-            </p:tab>
-        </p:wizard>
+                                        <h:outputText/>
+                                        <h:outputText/>
+                                    </h:panelGrid>
 
-    </h:form>
-</div>
+                                    <p:commandButton value="Crear Cuenta" action="#{UserWizardController.save()}" update="growl" process="@this"/>
+                                </p:panel>
+                            </p:tab>
+                        </p:wizard>
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
     </h:body>
 </html>
 
